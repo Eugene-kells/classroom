@@ -1,0 +1,1 @@
+Application for simple students accounting control.

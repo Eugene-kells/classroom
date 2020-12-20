@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+
+  postgres:
+    container_name: postgres
+    image: postgres:13.1
+    env_file:
+      - classroom.env
+
+  classroom-app:
+    container_name: classroom-app
+    build:
+      context: .
+      dockerfile: Dockerfile  # TODO :: should be separated into deployment and dev builds
+    env_file:
+      - classroom.env
+    depends_on:
+      - postgres
